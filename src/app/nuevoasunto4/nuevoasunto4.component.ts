@@ -47,7 +47,7 @@ export class Nuevoasunto4Component {
         this.dataSource.data = respuesta.dataframe;
         this.dataSource.paginator = this.paginator;
         document.getElementById('hidden')!.style.display = 'block';
-        this.rutaImg = 'http://34.67.213.198:3000/images/' + respuesta.grafica;
+        this.rutaImg = 'https://mundovirtual.cf/images/' + respuesta.grafica;
         this.llegaronDatos = true;
       });
   }

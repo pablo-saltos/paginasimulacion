@@ -82,7 +82,7 @@ export class Nuevoasunto7Component {
         this.dataSource2.data = respuesta.tablaDescribe;
         this.dataSource2.paginator = this.paginator2;
 
-        this.grafica = 'http://34.67.213.198:3000/images/' + respuesta.grafico;
+        this.grafica = 'https://mundovirtual.cf/images/' + respuesta.grafico;
 
         console.log(respuesta.tablaDescribe);
         document.getElementById('hidden')!.style.display = 'block';

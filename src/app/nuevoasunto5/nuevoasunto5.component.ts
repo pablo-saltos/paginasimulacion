@@ -59,7 +59,7 @@ export class Nuevoasunto5Component {
         this.dataSource1.paginator = this.paginator1;
         this.dataSource2.paginator = this.paginator2;
         document.getElementById('hidden')!.style.display = 'block';
-        this.rutaImg = 'http://34.67.213.198:3000/images/' + respuesta.grafico;
+        this.rutaImg = 'https://mundovirtual.cf/images/' + respuesta.grafico;
         this.llegaronDatos = true;
       });
   }

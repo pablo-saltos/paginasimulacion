@@ -55,9 +55,9 @@ export class Asunto1Component implements OnInit {
       .upload(this.file!, `${this.api}`)
       .subscribe((respuesta: any) => {
         this.llegaronDatos = true;
-        this.datosImg = 'http://34.67.213.198:3000/images/' + respuesta.datos;
+        this.datosImg = 'https://mundovirtual.cf/images/' + respuesta.datos;
         this.graficaImg =
-          'http://34.67.213.198:3000/images/' + respuesta.grafica;
+          'https://mundovirtual.cf/images/' + respuesta.grafica;
       });
   }
 //*******************************
