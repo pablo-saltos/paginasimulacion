@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Nuevoasunto4Service {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   upload(file: File, api: string): Observable<any> {
     // Create form data
     const formData = new FormData();

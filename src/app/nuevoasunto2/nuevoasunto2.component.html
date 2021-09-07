@@ -1,14 +1,12 @@
 <mat-card>
   <h1>Suavizamiento de datos</h1>
       
-  <p>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-    printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-    not only five centuries, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
-    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-    including versions of Lorem Ipsum.
+  <p align="justify"> 
+    La suavización exponencial utiliza un promedio ponderado de valores de series de tiempo
+pasadas como pronóstico; es un caso especial del método de promedios móviles
+ponderados en el cual seleccionamos sólo un peso, el peso para la observación más
+reciente. Los pesos para los demás valores se calculan de forma automática y se vuelven
+cada vez más pequeños a medida que las observaciones se alejan en el pasado
   </p>
   <br>
   <br>
@@ -27,7 +25,7 @@
           </div>
           
           <br>
-          <input type="file" class="file-input" #file (change)="onChange(file.files)" />
+          <input type="file" class="file-input" accept=".csv, .xlsx" #file (change)="onChange(file.files)" />
           <br>
 
           <mat-form-field>

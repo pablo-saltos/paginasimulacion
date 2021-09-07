@@ -2,7 +2,7 @@
   <h1>Simulación de Montecarlo</h1>
       
   <p align="justify">
-    A ver La simulación de Monte Carlo es una técnica que combina conceptos estadísticos (muestreo aleatorio) a partir de una
+    La simulación de Monte Carlo es una técnica que combina conceptos estadísticos (muestreo aleatorio) a partir de una
 distribución de probabilidad, la utilización del computador por la rapidez, permite realizar simulación matemática de los
 problemas tomando observaciones para hacer deducciones con respecto al sistema real.
 <br>
@@ -30,26 +30,26 @@ mejoraron enormemente con el desarrollo de la computadora" .
           </div>
           
           <br>
-          <input type="file" class="file-input" #file (change)="onChange(file.files)" />
+          <input type="file" class="file-input" accept=".csv, .xlsx" #file (change)="onChange(file.files)" />
           <br>
 
           <mat-form-field>
-              <input matInput placeholder="columna índices" (keyup)="onChangeX($event)" />
+              <input matInput placeholder="Índices" (keyup)="onChangeX($event)" />
           </mat-form-field>
           <br>
 
           <mat-form-field>
-              <input matInput placeholder="columna datos" (keyup)="onChangeX($event)" />
+              <input matInput placeholder="Datos" (keyup)="onChangeX($event)" />
           </mat-form-field>
           <br>
 
           <mat-form-field>
-              <input matInput placeholder="columna probabilidades" (keyup)="onChangeProbabilidades($event)" />
+              <input matInput placeholder="Probabilidades" (keyup)="onChangeProbabilidades($event)" />
           </mat-form-field>
           <br>
 
           <mat-form-field>
-            <input matInput placeholder="cantidad simulaciones" (keyup)="onChangeSimulaciones($event)" />
+            <input matInput placeholder="Simulaciones" (keyup)="onChangeSimulaciones($event)" />
           </mat-form-field>
           <br />
         

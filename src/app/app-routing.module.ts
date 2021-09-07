@@ -23,6 +23,7 @@ import { PruebacanComponent } from './pruebacan/pruebacan.component';
 
 
 const routes: Routes = [
+  { path: '', component: HomectComponent },
   { path: 'home', component: DummyComponent },
   { path: 'unidad2', component: DummyComponent },
   { path: 'aboutme', component: DummyComponent },

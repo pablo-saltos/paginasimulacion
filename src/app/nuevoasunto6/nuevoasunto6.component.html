@@ -15,116 +15,121 @@
 	<div fxLayoutAlign="center center" class="main-div"> <!-- fxFlexFill -->
 	  <mat-card fxFlex="25">
 		  <mat-toolbar color="primary">Realizar Ejercicio</mat-toolbar>
-		  <h3>Precio del producto</h3>
-		  <mat-form-field class="example-full-width" appearance="fill">
-			  <mat-label>Ingrese el precio </mat-label>
-			  <input matInput [(ngModel)]="datos.precio" />
-		  </mat-form-field>
-		  <br />
-		  <br />
-		  <h3>Precio de orden</h3>
-		  <mat-form-field class="example-full-width" appearance="fill">
-			  <mat-label>Ingrese el precio de la orden</mat-label>
-			  <input matInput [(ngModel)]="datos.orderCosto" />
-		  </mat-form-field>
-		  <br />
-		  <br />
-		  <h3>Inventario inicial</h3>
-		  <mat-form-field class="example-full-width" appearance="fill">
-			  <mat-label>Ingrese el iventario inicial </mat-label>
-			  <input matInput [(ngModel)]="datos.inventarioInicial" />
-		  </mat-form-field>
-		  <br />
-		  <br />
-		  <h3>Distribución de la demanda</h3>
-			<mat-form-field appearance="fill">
-			<mat-label>Seleccione una distribución</mat-label>
-			<mat-select [(value)]="datos.demandDist">
-				<mat-option *ngFor="let distribucion of distribucionesDemanda" [value]="distribucion.value">
-				{{distribucion.viewValue}}
-				</mat-option>
-			</mat-select>
-		</mat-form-field>
-		<ng-container
-		*ngIf="datos.demandDist == 'Constant'||datos.demandDist == 'Normal'||datos.demandDist == 'Triangular'">
-			<h3>Demanda p1</h3>
+		  <div class="espacio">
+			<h3>Precio producto</h3>
 			<mat-form-field class="example-full-width" appearance="fill">
-				<mat-label>Ingrese p1 </mat-label>
-				<input matInput [(ngModel)]="datos.demandP1" />
+				<mat-label>Precio </mat-label>
+				<input matInput [(ngModel)]="datos.precio" />
 			</mat-form-field>
 			<br />
 			<br />
-		</ng-container>
-
-		<ng-container *ngIf="datos.demandDist == 'Normal' || datos.demandDist == 'Triangular'">
-			<h3>Demanda p2</h3>
+			<h3>Precio orden</h3>
 			<mat-form-field class="example-full-width" appearance="fill">
-				<mat-label>Ingrese p2 </mat-label>
-				<input matInput [(ngModel)]="datos.demandP2" />
+				<mat-label>Orden</mat-label>
+				<input matInput [(ngModel)]="datos.orderCosto" />
 			</mat-form-field>
 			<br />
 			<br />
-		</ng-container>
-
-		<ng-container *ngIf="datos.demandDist == 'Triangular'">
-			<h3>Demanda p3</h3>
+			<h3>Inventario inicial</h3>
 			<mat-form-field class="example-full-width" appearance="fill">
-				<mat-label>Ingrese p3 </mat-label>
-				<input matInput [(ngModel)]="datos.demandP3" />
+				<mat-label>Iventario inicial </mat-label>
+				<input matInput [(ngModel)]="datos.inventarioInicial" />
 			</mat-form-field>
 			<br />
 			<br />
-		</ng-container>
-	
-		<h3>Distribución del tiempo de entrega</h3>
-		<mat-form-field appearance="fill">
-			<mat-label>Seleccione una distribución</mat-label>
-			<mat-select [(value)]="datos.leadTimeDist">
-				<mat-option *ngFor="let distribucion of distribucionesTiempoEntrega" [value]="distribucion.value">
-					{{distribucion.viewValue}}
-				</mat-option>
-			</mat-select>
-		</mat-form-field>
-		<ng-container
-		*ngIf="datos.leadTimeDist == 'Constant'||datos.leadTimeDist == 'Normal'||datos.leadTimeDist == 'Triangular'">
-		<h3>Tiempo de entrega p1</h3>
-		<mat-form-field class="example-full-width" appearance="fill">
-			<mat-label>Ingrese p1 </mat-label>
-			<input matInput [(ngModel)]="datos.leadTimeP1" />
-		</mat-form-field>
-		<br />
-		<br />
-	</ng-container>
-	<ng-container *ngIf="datos.leadTimeDist == 'Normal'||datos.leadTimeDist == 'Triangular'">
-		<h3>Tiempo de entrega p2</h3>
-		<mat-form-field class="example-full-width" appearance="fill">
-			<mat-label>Ingrese p2 </mat-label>
-			<input matInput [(ngModel)]="datos.leadTimeP2" />
-		</mat-form-field>
-		<br />
-		<br />
-	</ng-container>
+			<h3>Distribución demanda</h3>
+			  <mat-form-field appearance="fill">
+			  <mat-label>Elija una distribución</mat-label>
+			  <mat-select [(value)]="datos.demandDist">
+				  <mat-option *ngFor="let distribucion of distribucionesDemanda" [value]="distribucion.value">
+				  {{distribucion.viewValue}}
+				  </mat-option>
+			  </mat-select>
+		  </mat-form-field>
+		  <ng-container
+		  *ngIf="datos.demandDist == 'Constant'||datos.demandDist == 'Normal'||datos.demandDist == 'Triangular'">
+			  <h3>Demanda p1</h3>
+			  <mat-form-field class="example-full-width" appearance="fill">
+				  <mat-label>p1 </mat-label>
+				  <input matInput [(ngModel)]="datos.demandP1" />
+			  </mat-form-field>
+			  <br />
+			  <br />
+		  </ng-container>
+  
+		  <ng-container *ngIf="datos.demandDist == 'Normal' || datos.demandDist == 'Triangular'">
+			  <h3>Demanda p2</h3>
+			  <mat-form-field class="example-full-width" appearance="fill">
+				  <mat-label>p2 </mat-label>
+				  <input matInput [(ngModel)]="datos.demandP2" />
+			  </mat-form-field>
+			  <br />
+			  <br />
+		  </ng-container>
+  
+		  <ng-container *ngIf="datos.demandDist == 'Triangular'">
+			  <h3>Demanda p3</h3>
+			  <mat-form-field class="example-full-width" appearance="fill">
+				  <mat-label>p3 </mat-label>
+				  <input matInput [(ngModel)]="datos.demandP3" />
+			  </mat-form-field>
+			  <br />
+			  <br />
+		  </ng-container>
+	  
+		  <h3>Distribución del tiempo de entrega</h3>
+		  <mat-form-field appearance="fill">
+			  <mat-label>Elija una distribución</mat-label>
+			  <mat-select [(value)]="datos.leadTimeDist">
+				  <mat-option *ngFor="let distribucion of distribucionesTiempoEntrega" [value]="distribucion.value">
+					  {{distribucion.viewValue}}
+				  </mat-option>
+			  </mat-select>
+		  </mat-form-field>
+		  <ng-container
+		  *ngIf="datos.leadTimeDist == 'Constant'||datos.leadTimeDist == 'Normal'||datos.leadTimeDist == 'Triangular'">
+		  <h3>Tiempo entrega p1</h3>
+		  <mat-form-field class="example-full-width" appearance="fill">
+			  <mat-label>p1 </mat-label>
+			  <input matInput [(ngModel)]="datos.leadTimeP1" />
+		  </mat-form-field>
+		  <br />
+		  <br />
+	  </ng-container>
+	  <ng-container *ngIf="datos.leadTimeDist == 'Normal'||datos.leadTimeDist == 'Triangular'">
+		  <h3>Tiempo entrega p2</h3>
+		  <mat-form-field class="example-full-width" appearance="fill">
+			  <mat-label>p2 </mat-label>
+			  <input matInput [(ngModel)]="datos.leadTimeP2" />
+		  </mat-form-field>
+		  <br />
+		  <br />
+	  </ng-container>
+  
+	  <ng-container *ngIf="datos.leadTimeDist == 'Triangular'">
+		  <h3>Tiempo entrega p3</h3>
+		  <mat-form-field class="example-full-width" appearance="fill">
+			  <mat-label>p3 </mat-label>
+			  <input matInput [(ngModel)]="datos.leadTimeP3" />
+		  </mat-form-field>
+		  <br />
+		  <br />
+	  </ng-container>
+	  <h3>Periodos</h3>
+	  <mat-form-field class="example-full-width" appearance="fill">
+		  <mat-label>Número de periodos </mat-label>
+		  <input matInput [(ngModel)]="datos.periodos" />
+	  </mat-form-field>
+	  <br />
+	  <br />
+	  <button mat-raised-button (click)="onUpload()" class="btn btn-success">
+		Mostrar datos
+	  </button>
+	  <br />
 
-	<ng-container *ngIf="datos.leadTimeDist == 'Triangular'">
-		<h3>Tiempo de entrega p3</h3>
-		<mat-form-field class="example-full-width" appearance="fill">
-			<mat-label>Ingrese p3 </mat-label>
-			<input matInput [(ngModel)]="datos.leadTimeP3" />
-		</mat-form-field>
-		<br />
-		<br />
-	</ng-container>
-	<h3>Periodos</h3>
-	<mat-form-field class="example-full-width" appearance="fill">
-		<mat-label>Ingrese núm. de periodos </mat-label>
-		<input matInput [(ngModel)]="datos.periodos" />
-	</mat-form-field>
-	<br />
-	<br />
-	<button mat-raised-button (click)="onUpload()" class="btn btn-success">
-		Cargar datos
-	</button>
-	<br />
+		  </div>
+
+		  
 </mat-card>
   
 </div>

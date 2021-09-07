@@ -1,32 +1,41 @@
 <mat-card>
-    <h1>Simulación de linea de espera</h1>
-    <p>
-      Las líneas de espera o sistemas de colas están fundamentados en la teoría de colas, rama de la investigación de operaciones que estudia los procesos de líneas de espera
-    </p>
-    <br />
+  <h1>Simulación de linea de espera</h1>
+      
+  <p align="justify">
+    Las líneas de espera o sistemas de colas están fundamentados en la teoría de colas, es una rama de la investigación de operaciones que estudia los procesos de líneas de espera
+  </p>
+  <br>
+  <br>
+  <br>
+
+  <div fxLayoutAlign="center center" class="main-div"> <!-- fxFlexFill -->
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Realizar Ejercicio</mat-toolbar>
+        <div class="espacio">
+        <h3>Lambda</h3>
+          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Lambda </mat-label>
+          <input matInput [(ngModel)]="datos.lambda" />
+        </mat-form-field>
+        <h3>Nu</h3>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nu</mat-label>
+          <input matInput [(ngModel)]="datos.nu" />
+        </mat-form-field>
+        <br />
+        <br />
   
-    <h3>Lambda</h3>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Ingrese lambda </mat-label>
-      <input matInput [(ngModel)]="datos.lambda" />
-    </mat-form-field>
-    <br /><br />
-  
-    <h3>Nu</h3>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Ingrese nu</mat-label>
-      <input matInput [(ngModel)]="datos.nu" />
-    </mat-form-field>
+        <button mat-raised-button (click)="onUpload()" class="btn btn-success">
+          Mostrar datos
+        </button>
+      </div>
     <br />
     <br />
-  
-    <button mat-raised-button (click)="onUpload()" class="btn btn-success">
-      Cargar datos
-    </button>
     <br />
-  </mat-card>
-  <br />
-  <br />
+    </mat-card>
+
+  </div>
+
   <mat-card id="hidden">
     <h3>Resultado de la simulación:</h3>
     <br />

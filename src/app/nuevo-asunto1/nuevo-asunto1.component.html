@@ -1,14 +1,18 @@
 <mat-card>
   <h1>Promedio móvil</h1>
       
-  <p>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-    printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-    not only five centuries, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
-    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-    including versions of Lorem Ipsum.
+  <p align="justify">
+    El método de promedio móvil se utiliza cuando se requiere dar más importancia a los datos recientes, el
+pronóstico se lo calcula con el promedio de n valores de los datos más recientes de la siguiente forma:
+<br>
+<br>
+Promedio Móvil= (∑▒〖(n puntos de datos más recientes)〗)/n
+<br>
+<br>
+Ejemplo: Para este ejemplo vamos a utilizar una serie cronológica de las exportaciones de Ecuador del
+período 2003-2017, datos tomados del sitio estadístico del BANCO CENTRAL DEL ECUADOR. El análisis
+de pronósticos está enfocado a procesar los datos con los tres métodos promedio móvil, suavización
+exponencial y por ultimo con la regresión de los mínimos cuadrados.
   </p>
   <br>
   <br>
@@ -27,17 +31,17 @@
           </div>
           
           <br>
-          <input type="file" class="file-input" #file (change)="onChange(file.files)" />
+          <input type="file" class="file-input" accept=".csv, .xlsx" #file (change)="onChange(file.files)" />
           <br>
 
           <mat-form-field>
-              <input matInput placeholder="columna tiempo" (keyup)="onChangeX($event)" />
+              <input matInput placeholder="columna tiempo (X)" (keyup)="onChangeX($event)" />
           </mat-form-field>
 
         
           <br />
           <mat-form-field>
-            <input matInput placeholder="columna datos" (keyup)="onChangeY($event)" />
+            <input matInput placeholder="columna datos (Y)" (keyup)="onChangeY($event)" />
           </mat-form-field>
             
           <br />

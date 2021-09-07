@@ -29,6 +29,15 @@
   background: #E8E8E8;
   color: rgb(12, 12, 12);
 }
-.mat-flat-button.mat-warn, .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
+.mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab {
+  color: #E8E8E8;
   background-color: #5C6E91;
+}
+
+.espacio{
+  margin: 5%;
+}
+.mat-raised-button {
+  margin: 11px;
+  border-radius: 31px;
 }

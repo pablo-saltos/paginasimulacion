@@ -7,3 +7,36 @@
   #hidden {
     display: none;
   }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+   
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .main-div mat-card{
+      padding: 0px;
+  }
+  
+  .ejercicio-form {
+      padding: 20px;
+  }
+  .mat-toolbar.mat-primary {
+    background: #E8E8E8;
+    color: rgb(12, 12, 12);
+  }
+  .mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab {
+    color: #E8E8E8;
+    background-color: #5C6E91;
+  }
+  
+  .espacio{
+    margin: 5%;
+  }
+  .mat-raised-button {
+    margin: 11px;
+    border-radius: 31px;
+  }
