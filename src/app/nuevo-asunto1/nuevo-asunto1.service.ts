@@ -12,7 +12,7 @@ export class NuevoAsunto1Service {
   upload(file: File, api: string): Observable<any> {
     // Create form data
     const formData = new FormData();
-    api = 'https://mundovirtual.cf/api//' + api;
+    api = 'https://mundovirtual.cf/api/' + api;
 
     console.log(file);
 
