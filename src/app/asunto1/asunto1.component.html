@@ -1,0 +1,77 @@
+<mat-card>
+  <h1>Extracción de datos</h1>
+  
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+    printer took a galley of type and scrambled it to make a type specimen book. It has survived 
+    not only five centuries, but also the leap into electronic typesetting, remaining essentially
+    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+    including versions of Lorem Ipsum.
+  </p>
+  <br>
+  <br>
+  <br>
+
+  <div fxLayoutAlign="center center" class="main-div"> <!-- fxFlexFill -->
+      <mat-card fxFlex="25">
+          <mat-toolbar color="primary">Realizar Ejercicio</mat-toolbar>
+
+          <form fxLayoutAlign="stretch" fxLayout="column" class="ejercicio-form">
+            <p>Carga tu base de datos con el botón de abajo :D</p>
+          
+            <div class="file-upload">
+              {{ fileName || "Suba un archivo" }}
+              <button mat-raised-button (click)="file.click()">Cargar datos</button>
+            </div>
+            
+            <br>
+            <input type="file" class="file-input" #file (change)="onChange(file.files)" />
+            <br>
+<!--             <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Escoger campo</mat-label>
+              <input (keyup)="onChangeX($event)" type="text" matInput [formControl]="myControl" [matAutocomplete]="auto"> 
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option.name}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field> -->
+        
+<!--             <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Escoger campo</mat-label>
+              <input (keyup)="onChangeY($event)" type="text" matInput [formControl]="myControl" [matAutocomplete]="auto"> 
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option.name}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field> -->
+          
+            <mat-form-field>
+                <input matInput placeholder="Eje X" (keyup)="onChangeX($event)" />
+            </mat-form-field>
+
+          
+            <br />
+            <mat-form-field>
+              <input matInput placeholder="Eje Y" (keyup)="onChangeY($event)" />
+            </mat-form-field>
+              
+            <br />
+          
+            <button mat-raised-button (click)="onUpload()">Mostrar datos</button>
+          </form>
+      </mat-card>
+  </div>
+  <ng-container *ngIf="llegaronDatos">
+    <h3>Datos analizados</h3>
+    <br />
+    <img [src]="datosImg" />
+    <br />
+    <h3>Grafica</h3>
+    <br />
+    <img [src]="graficaImg" alt="" />
+  </ng-container>
+</mat-card>

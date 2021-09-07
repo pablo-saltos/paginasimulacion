@@ -1,0 +1,93 @@
+<mat-card>
+  <h1>Suavizamiento de datos</h1>
+      
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+    printer took a galley of type and scrambled it to make a type specimen book. It has survived 
+    not only five centuries, but also the leap into electronic typesetting, remaining essentially
+    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+    including versions of Lorem Ipsum.
+  </p>
+  <br>
+  <br>
+  <br>
+
+  <div fxLayoutAlign="center center" class="main-div"> <!-- fxFlexFill -->
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Realizar Ejercicio</mat-toolbar>
+
+        <form fxLayoutAlign="stretch" fxLayout="column" class="ejercicio-form">
+          <p>Carga tu base de datos con el botón de abajo :D</p>
+        
+          <div class="file-upload">
+            {{ fileName || "Suba un archivo" }}
+            <button color="warn" mat-raised-button (click)="file.click()">Cargar datos</button>
+          </div>
+          
+          <br>
+          <input type="file" class="file-input" #file (change)="onChange(file.files)" />
+          <br>
+
+          <mat-form-field>
+              <input matInput placeholder="columna tiempo" (keyup)="onChangeX($event)" />
+          </mat-form-field>
+
+        
+          <br />
+          <mat-form-field>
+            <input matInput placeholder="columna datos" (keyup)="onChangeY($event)" />
+          </mat-form-field>
+
+
+          <br />
+          <mat-form-field>
+            <input matInput (keyup)="onChangeAlpha($event)" placeholder="alpha" />
+          </mat-form-field>
+            
+          <br />
+        
+          <button color="warn" mat-raised-button (click)="onUpload()">Mostrar datos</button>
+        </form>
+    </mat-card>
+
+  </div>
+
+  <br />
+  <br />
+<mat-card id="hidden">
+  <h3>Resultado suavizamiento de datos</h3>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container *ngIf="llegaronDatos">
+        <ng-container [matColumnDef]="nombreX">
+          <th mat-header-cell *matHeaderCellDef>{{ nombreX }}</th>
+          <td mat-cell *matCellDef="let element">{{ element[nombreX] }}</td>
+        </ng-container>
+
+        <ng-container [matColumnDef]="nombreY">
+          <th mat-header-cell *matHeaderCellDef>{{ nombreY }}</th>
+          <td mat-cell *matCellDef="let element">{{ element[nombreY] }}</td>
+        </ng-container>
+      </ng-container>
+
+      <ng-container matColumnDef="SN">
+        <th mat-header-cell *matHeaderCellDef>SN</th>
+        <td mat-cell *matCellDef="let element">{{ element.SN }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of data"
+    >
+    </mat-paginator>
+  </div>
+</mat-card>
+  

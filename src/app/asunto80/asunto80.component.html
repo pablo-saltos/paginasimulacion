@@ -1,0 +1,30 @@
+<br>
+<br>
+<div fxLayoutAlign="center center" class="main-div"> <!-- fxFlexFill -->
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Realizar Ejercicio</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="ejercicio-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Escoger campo</mat-label>
+                <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option.name}}
+                  </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Escoger campo</mat-label>
+                <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option.name}}
+                  </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <button mat-raised-button type="submit">Mostrar datos</button>
+          </form>
+          
+    </mat-card>
+</div>

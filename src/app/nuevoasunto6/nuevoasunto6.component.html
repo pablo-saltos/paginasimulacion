@@ -1,0 +1,197 @@
+<mat-card>
+	<h1>Inventario</h1>
+		
+	<p align="justify">
+		El sistema de inventario es un conjunto de políticas, modelos, componentes (productos, compras, pedidos, costos,
+		órdenes de compra, cantidad de pedido, tiempos de pedido…), que organizados e interrelacionados nos permitan
+		optimizar el costo de mantener el inventario para que la empresa pueda obtener beneficios reales y otros como el
+		“GoodWill” o prestigio de la empresa no tangible.
+		
+	</p>
+	<br>
+	<br>
+	<br>
+  
+	<div fxLayoutAlign="center center" class="main-div"> <!-- fxFlexFill -->
+	  <mat-card fxFlex="25">
+		  <mat-toolbar color="primary">Realizar Ejercicio</mat-toolbar>
+		  <h3>Precio del producto</h3>
+		  <mat-form-field class="example-full-width" appearance="fill">
+			  <mat-label>Ingrese el precio </mat-label>
+			  <input matInput [(ngModel)]="datos.precio" />
+		  </mat-form-field>
+		  <br />
+		  <br />
+		  <h3>Precio de orden</h3>
+		  <mat-form-field class="example-full-width" appearance="fill">
+			  <mat-label>Ingrese el precio de la orden</mat-label>
+			  <input matInput [(ngModel)]="datos.orderCosto" />
+		  </mat-form-field>
+		  <br />
+		  <br />
+		  <h3>Inventario inicial</h3>
+		  <mat-form-field class="example-full-width" appearance="fill">
+			  <mat-label>Ingrese el iventario inicial </mat-label>
+			  <input matInput [(ngModel)]="datos.inventarioInicial" />
+		  </mat-form-field>
+		  <br />
+		  <br />
+		  <h3>Distribución de la demanda</h3>
+			<mat-form-field appearance="fill">
+			<mat-label>Seleccione una distribución</mat-label>
+			<mat-select [(value)]="datos.demandDist">
+				<mat-option *ngFor="let distribucion of distribucionesDemanda" [value]="distribucion.value">
+				{{distribucion.viewValue}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<ng-container
+		*ngIf="datos.demandDist == 'Constant'||datos.demandDist == 'Normal'||datos.demandDist == 'Triangular'">
+			<h3>Demanda p1</h3>
+			<mat-form-field class="example-full-width" appearance="fill">
+				<mat-label>Ingrese p1 </mat-label>
+				<input matInput [(ngModel)]="datos.demandP1" />
+			</mat-form-field>
+			<br />
+			<br />
+		</ng-container>
+
+		<ng-container *ngIf="datos.demandDist == 'Normal' || datos.demandDist == 'Triangular'">
+			<h3>Demanda p2</h3>
+			<mat-form-field class="example-full-width" appearance="fill">
+				<mat-label>Ingrese p2 </mat-label>
+				<input matInput [(ngModel)]="datos.demandP2" />
+			</mat-form-field>
+			<br />
+			<br />
+		</ng-container>
+
+		<ng-container *ngIf="datos.demandDist == 'Triangular'">
+			<h3>Demanda p3</h3>
+			<mat-form-field class="example-full-width" appearance="fill">
+				<mat-label>Ingrese p3 </mat-label>
+				<input matInput [(ngModel)]="datos.demandP3" />
+			</mat-form-field>
+			<br />
+			<br />
+		</ng-container>
+	
+		<h3>Distribución del tiempo de entrega</h3>
+		<mat-form-field appearance="fill">
+			<mat-label>Seleccione una distribución</mat-label>
+			<mat-select [(value)]="datos.leadTimeDist">
+				<mat-option *ngFor="let distribucion of distribucionesTiempoEntrega" [value]="distribucion.value">
+					{{distribucion.viewValue}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<ng-container
+		*ngIf="datos.leadTimeDist == 'Constant'||datos.leadTimeDist == 'Normal'||datos.leadTimeDist == 'Triangular'">
+		<h3>Tiempo de entrega p1</h3>
+		<mat-form-field class="example-full-width" appearance="fill">
+			<mat-label>Ingrese p1 </mat-label>
+			<input matInput [(ngModel)]="datos.leadTimeP1" />
+		</mat-form-field>
+		<br />
+		<br />
+	</ng-container>
+	<ng-container *ngIf="datos.leadTimeDist == 'Normal'||datos.leadTimeDist == 'Triangular'">
+		<h3>Tiempo de entrega p2</h3>
+		<mat-form-field class="example-full-width" appearance="fill">
+			<mat-label>Ingrese p2 </mat-label>
+			<input matInput [(ngModel)]="datos.leadTimeP2" />
+		</mat-form-field>
+		<br />
+		<br />
+	</ng-container>
+
+	<ng-container *ngIf="datos.leadTimeDist == 'Triangular'">
+		<h3>Tiempo de entrega p3</h3>
+		<mat-form-field class="example-full-width" appearance="fill">
+			<mat-label>Ingrese p3 </mat-label>
+			<input matInput [(ngModel)]="datos.leadTimeP3" />
+		</mat-form-field>
+		<br />
+		<br />
+	</ng-container>
+	<h3>Periodos</h3>
+	<mat-form-field class="example-full-width" appearance="fill">
+		<mat-label>Ingrese núm. de periodos </mat-label>
+		<input matInput [(ngModel)]="datos.periodos" />
+	</mat-form-field>
+	<br />
+	<br />
+	<button mat-raised-button (click)="onUpload()" class="btn btn-success">
+		Cargar datos
+	</button>
+	<br />
+</mat-card>
+  
+</div>
+<mat-card id="hidden">
+	<h3>Resultado de la simulación:</h3>
+	<br />
+	<p>Tabla de datos:</p>
+	<div class="mat-elevation-z8">
+		<table mat-table [dataSource]="dataSource1">
+			<ng-container matColumnDef="INV_INICIAL">
+				<th mat-header-cell *matHeaderCellDef>INV_INICIAL</th>
+				<td mat-cell *matCellDef="let element">{{ element.INV_INICIAL }}</td>
+			</ng-container>
+			<ng-container matColumnDef="INV_NETO_INICIAL">
+				<th mat-header-cell *matHeaderCellDef>DEMANDA</th>
+				<td mat-cell *matCellDef="let element">{{ element.DEMANDA }}</td>
+			</ng-container>
+			<ng-container matColumnDef="DEMANDA">
+				<th mat-header-cell *matHeaderCellDef>DEMANDA</th>
+				<td mat-cell *matCellDef="let element">
+					{{ element.DEMANDA }}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="INV_FINAL">
+				<th mat-header-cell *matHeaderCellDef>INV_FINAL</th>
+				<td mat-cell *matCellDef="let element">
+					{{ element["INV_FINAL"] }}
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="INV_FINAL_NETO">
+				<th mat-header-cell *matHeaderCellDef>INV_FINAL_NETO</th>
+				<td mat-cell *matCellDef="let element">
+					{{ element["INV_FINAL_NETO"] }}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="VENTAS_PERDIDAS">
+				<th mat-header-cell *matHeaderCellDef>VENTAS_PERDIDAS</th>
+				<td mat-cell *matCellDef="let element">
+					{{ element["VENTAS_PERDIDAS"] }}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="INV_PROMEDIO">
+				<th mat-header-cell *matHeaderCellDef>INV_PROMEDIO</th>
+				<td mat-cell *matCellDef="let element">
+					{{ element["INV_PROMEDIO"] }}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="CANT_ORDENAR">
+				<th mat-header-cell *matHeaderCellDef>CANT_ORDENAR</th>
+				<td mat-cell *matCellDef="let element">
+					{{ element["CANT_ORDENAR"] }}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="TIEMPO_LLEGADA">
+				<th mat-header-cell *matHeaderCellDef>TIEMPO_LLEGADA</th>
+				<td mat-cell *matCellDef="let element">
+					{{ element["TIEMPO_LLEGADA"] }}
+				</td>
+			</ng-container>
+			<tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+		</table>
+
+		<mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons aria-label="Select page of data">
+		</mat-paginator>
+	</div>
+</mat-card>
+  
+	

@@ -1,0 +1,109 @@
+<mat-card>
+  <h1>Media, mediana y moda</h1>
+  <input type="file" class="file-input" #file (change)="onChange(file.files)" />
+  <div class="file-upload">
+    {{ fileName || "Suba un archivo" }}
+
+    <button
+      mat-mini-fab
+      color="primary"
+      class="upload-btn"
+      (click)="file.click()"
+    >
+      <mat-icon>attach_file</mat-icon>
+    </button>
+
+    <br />
+  </div>
+  <br />
+  <h2>Nombre de la columna a analizar</h2>
+  <input matInput (keyup)="onChangeColumna($event)" placeholder="columna" />
+  <br /><br />
+  <br />
+  <button mat-raised-button (click)="onUpload()" class="btn btn-success">
+    Cargar datos
+  </button>
+  <ng-container *ngIf="llegaronDatos">
+    <br />
+    <br />
+    <h3>{{ nombreColumna }}</h3>
+    <p>Media: {{ media }}</p>
+    <p>Mediana: {{ mediana }}</p>
+    <p>Moda: {{ moda }}</p>
+  </ng-container>
+</mat-card>
+
+
+
+<!-- <div class="input-container">
+  <label for="Sexo">
+      <span class="texto">Sexo: </span>
+      <input list="Sexo">
+      <datalist id="Sexo"> 
+          <option value="Masculino"></option>
+          <option value="Femenino"></option>
+      </datalist>
+  </label>
+</div>
+ -->
+
+
+
+<!-- 
+<mat-card>
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Assignee</mat-label>
+          <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+</mat-card>
+   -->
+<!-- <mat-card>
+    <mat-card-title>
+        Unidad I
+    </mat-card-title>
+
+    <mat-card-content>
+        <p>Carga tu base de datos con el botón de abajo :D</p>
+        <button mat-raised-button>Cargar archivo</button>
+        <br>
+        <br>
+        <br>
+
+        <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Number</mat-label>
+              <input type="text"
+                     placeholder="Pick one"
+                     aria-label="Number"
+                     matInput
+                     [formControl]="myControl"
+                     [matAutocomplete]="auto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+        </form>
+
+        <button mat-stroked-button color="primary" style="margin-right: 10px;" [routerLink]="'/clientes/crear'">Crear
+            cliente</button>
+        <button mat-stroked-button color="primary" [routerLink]="'/planes/crear'">Crear plan</button>
+        <mat-list>
+            <mat-list-item>
+                <button mat-button color="primary" [routerLink]="'/administracion'">
+                    <mat-icon>arrow_drop_down</mat-icon> Clientes
+                </button>
+            </mat-list-item>
+        </mat-list>
+
+    </mat-card-content>
+</mat-card> -->
+

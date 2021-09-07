@@ -1,0 +1,32 @@
+<mat-toolbar color= "primary" class="mat-elevation-z8"> 
+<!--   <div class="spacer"></div> -->
+<!--     <a mat-button routerLink="homect"> Home </a>
+    <a mat-button routerLink="unidad1"> Unidad I </a> -->
+    <a mat-button routerLink="homect"> <mat-icon>house</mat-icon> Home </a>
+    <button  mat-button [matMenuTriggerFor]="animals"> <mat-icon>expand_more</mat-icon>  Ejercicios </button>
+    
+
+
+
+    <mat-menu #animals="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="vertebrates">Pronóstico</button>
+      <button mat-menu-item [matMenuTriggerFor]="jeje">Simulación</button>
+    </mat-menu>
+
+    <mat-menu #vertebrates="matMenu">
+      <button routerLink="nuevo-asunto1" mat-menu-item>Promedio movil</button> 
+      <button routerLink="nuevoasunto2" mat-menu-item>Suavizamiento</button>
+      <button routerLink="nuevoasunto3" mat-menu-item>Regresión Lineal</button>
+      <button routerLink="nuevoasunto4" mat-menu-item>Regresión cuadrática</button>
+    </mat-menu>
+
+    <mat-menu #jeje="matMenu">
+      <button routerLink="nuevoasunto5" mat-menu-item>Montecarlo</button>
+      <button routerLink="nuevoasunto6" mat-menu-item>Inventario</button>
+      <button routerLink="nuevoasunto7" mat-menu-item>Linea de espera</button>
+    </mat-menu>
+
+    <div class="spacer"></div>
+    <span>Modelamiento y Simulación  <mat-icon>tips_and_updates</mat-icon></span>
+
+</mat-toolbar>
