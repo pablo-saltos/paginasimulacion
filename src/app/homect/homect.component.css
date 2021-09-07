@@ -323,12 +323,19 @@ span.post-name a,span.post-read-more a:hover {
 .mainheading h1.sitetitle {
 	font-family:Georgia;
 }
+.mat-flat-button.mat-warn, .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
+    background-color: #FFF100;
+    color: rgb(12, 12, 12);
+}
 .mainheading h1.posttitle {
 	font-weight:700;
 	margin-bottom:1rem;
 }
+.row {
+    --bs-gutter-x: -1.5rem;
+}
 .intro {
-    background-image:url(../../assets/head.jpg);
+    background-image:url(../../assets/teclado.jpg);
     background-size:cover;
     padding: 5rem 0;
     margin-top:-112px;
