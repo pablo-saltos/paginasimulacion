@@ -31,3 +31,8 @@ table {
 .mat-flat-button.mat-warn, .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
   background-color: #5C6E91;
 }
+
+.mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab {
+  color: rgb(255 255 255 / 87%);
+  background-color: #5C6E91;
+}

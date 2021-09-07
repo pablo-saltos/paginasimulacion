@@ -1,17 +1,146 @@
+<!-- <mat-card>
+  <h1>Simulación de Montecarlo</h1>
+  <input type="file" class="file-input" accept=".csv, .xlsx" #file (change)="onChange(file.files)" />
+
+  <div class="file-upload">
+    {{ fileName || "Suba un archivo" }}
+
+    <button mat-mini-fab color="primary" class="upload-btn" (click)="file.click()">
+      <mat-icon>attach_file</mat-icon>
+    </button>
+
+    <br />
+  </div>
+  <br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Columna índices</mat-label>
+    <input matInput (keyup)="onChangeX($event)" placeholder="" />
+  </mat-form-field>
+  <br /><br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Columna datos</mat-label>
+    <input matInput (keyup)="onChangeY($event)" placeholder="" />
+  </mat-form-field>
+  <br />
+  <br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Columna probabilidades</mat-label>
+    <input matInput (keyup)="onChangeProbabilidades($event)" placeholder="" />
+  </mat-form-field>
+  <br />
+  <br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Cantidad simulaciones</mat-label>
+    <input matInput (keyup)="onChangeSimulaciones($event)" placeholder="" />
+  </mat-form-field>
+  <br />
+  <br />
+  <button mat-raised-button (click)="onUpload()" class="btn btn-success">
+    Mostrar resultados
+  </button>
+  <br />
+</mat-card>
+<br />
+<br />
+<mat-card id="hidden">
+  <h3>Resultado de la simulación:</h3>
+  <br />
+  <p>Tabla de datos:</p>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource1">
+      <ng-container *ngIf="llegaronDatos">
+        <ng-container [matColumnDef]="nombreX">
+          <th mat-header-cell *matHeaderCellDef>{{ nombreX }}</th>
+          <td mat-cell *matCellDef="let element">{{ element[nombreX] }}</td>
+        </ng-container>
+
+        <ng-container [matColumnDef]="nombreY">
+          <th mat-header-cell *matHeaderCellDef>{{ nombreY }}</th>
+          <td mat-cell *matCellDef="let element">{{ element[nombreY] }}</td>
+        </ng-container>
+
+        <ng-container [matColumnDef]="nombreProbabilidades">
+          <th mat-header-cell *matHeaderCellDef>{{ nombreProbabilidades }}</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element[nombreProbabilidades] }}
+          </td>
+        </ng-container>
+      </ng-container>
+
+      <ng-container matColumnDef="FDP">
+        <th mat-header-cell *matHeaderCellDef>FDP</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element["FDP"] }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Min">
+        <th mat-header-cell *matHeaderCellDef>Min</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element["Min"] }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Max">
+        <th mat-header-cell *matHeaderCellDef>Max</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element["Max"] }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons aria-label="Select page of data">
+    </mat-paginator>
+  </div>
+
+  <br />
+  <br />
+  <p>Suma de simulaciones</p>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource2">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Num.</th>
+        <td mat-cell *matCellDef="let i = index">
+          {{
+          this.paginator2.pageIndex == 0
+          ? i + 1
+          : 1 + i + this.paginator2.pageIndex * this.paginator2.pageSize
+          }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Suma de las simulaciones">
+        <th mat-header-cell *matHeaderCellDef>Suma de las simulaciones</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element["Suma de las simulaciones"] }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons aria-label="Select page of data">
+    </mat-paginator>
+  </div>
+  <br />
+  <br />
+  <p>Gráfica:</p>
+  <img [src]="rutaImg" />
+</mat-card>
+
+ -->
+
+
 <mat-card>
   <h1>Simulación de Montecarlo</h1>
       
   <p align="justify">
-    La simulación de Monte Carlo es una técnica que combina conceptos estadísticos (muestreo aleatorio) a partir de una
-distribución de probabilidad, la utilización del computador por la rapidez, permite realizar simulación matemática de los
-problemas tomando observaciones para hacer deducciones con respecto al sistema real.
-<br>
-<br>
-Wikipedia "El método de Montecarlo es un modelo no determinista o estadístico numérico, usado para aproximar
-expresiones matemáticas complejas y costosas de evaluar con exactitud. El método se llamó así en referencia al Casino
-de Montecarlo (Mónaco) por ser “la capital del juego de azar”, al ser la ruleta un generador simple de números
-aleatorios. El nombre y el desarrollo sistemático de los métodos de Montecarlo datan aproximadamente de 1944 y se
-mejoraron enormemente con el desarrollo de la computadora" .
+    La simulación de Monte Carlo es una técnica que combina conceptos estadísticos
+(muestreo aleatorio) a partir de una distribución de probabilidad, la utilización del computador
+por la rapidez permite realizar simulación matemática de los problemas tomando observaciones
+para hacer deducciones con respecto al sistema real.
   </p>
   <br>
   <br>
@@ -33,34 +162,39 @@ mejoraron enormemente con el desarrollo de la computadora" .
           <input type="file" class="file-input" accept=".csv, .xlsx" #file (change)="onChange(file.files)" />
           <br>
 
-          <mat-form-field>
-              <input matInput placeholder="Índices" (keyup)="onChangeX($event)" />
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Índices</mat-label>
+            <input matInput (keyup)="onChangeX($event)" placeholder="" />
           </mat-form-field>
-          <br>
+          <br /><br />
 
-          <mat-form-field>
-              <input matInput placeholder="Datos" (keyup)="onChangeX($event)" />
-          </mat-form-field>
-          <br>
-
-          <mat-form-field>
-              <input matInput placeholder="Probabilidades" (keyup)="onChangeProbabilidades($event)" />
-          </mat-form-field>
-          <br>
-
-          <mat-form-field>
-            <input matInput placeholder="Simulaciones" (keyup)="onChangeSimulaciones($event)" />
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Datos</mat-label>
+            <input matInput (keyup)="onChangeY($event)" placeholder="" />
           </mat-form-field>
           <br />
-        
-          <button color="warn" mat-raised-button (click)="onUpload()">Mostrar datos</button>
+          <br />
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Columna probabilidades</mat-label>
+            <input matInput (keyup)="onChangeProbabilidades($event)" placeholder="" />
+          </mat-form-field>
+          <br />
+          <br />
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Cantidad simulaciones</mat-label>
+            <input matInput (keyup)="onChangeSimulaciones($event)" placeholder="" />
+          </mat-form-field>
+          <br />
+          <br />
+          <button mat-raised-button (click)="onUpload()" class="btn btn-success">
+            Mostrar resultados
+          </button>
+          <br />
+
         </form>
     </mat-card>
-
   </div>
-
-  <br />
-  <br />
   <mat-card id="hidden">
     <h3>Resultado de la simulación:</h3>
     <br />
@@ -110,11 +244,7 @@ mejoraron enormemente con el desarrollo de la computadora" .
         <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
       </table>
   
-      <mat-paginator
-        [pageSizeOptions]="[10, 20]"
-        showFirstLastButtons
-        aria-label="Select page of data"
-      >
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons aria-label="Select page of data">
       </mat-paginator>
     </div>
   
@@ -127,9 +257,9 @@ mejoraron enormemente con el desarrollo de la computadora" .
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Num.</th>
           <td mat-cell *matCellDef="let i = index">
             {{
-              this.paginator2.pageIndex == 0
-                ? i + 1
-                : 1 + i + this.paginator2.pageIndex * this.paginator2.pageSize
+            this.paginator2.pageIndex == 0
+            ? i + 1
+            : 1 + i + this.paginator2.pageIndex * this.paginator2.pageSize
             }}
           </td>
         </ng-container>
@@ -144,11 +274,7 @@ mejoraron enormemente con el desarrollo de la computadora" .
         <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
       </table>
   
-      <mat-paginator
-        [pageSizeOptions]="[10, 20]"
-        showFirstLastButtons
-        aria-label="Select page of data"
-      >
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons aria-label="Select page of data">
       </mat-paginator>
     </div>
     <br />
@@ -156,4 +282,3 @@ mejoraron enormemente con el desarrollo de la computadora" .
     <p>Gráfica:</p>
     <img [src]="rutaImg" />
   </mat-card>
-  
