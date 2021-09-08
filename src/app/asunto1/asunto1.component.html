@@ -29,25 +29,7 @@
             <br>
             <input type="file" class="file-input" #file (change)="onChange(file.files)" />
             <br>
-<!--             <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Escoger campo</mat-label>
-              <input (keyup)="onChangeX($event)" type="text" matInput [formControl]="myControl" [matAutocomplete]="auto"> 
-              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                  {{option.name}}
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field> -->
-        
-<!--             <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Escoger campo</mat-label>
-              <input (keyup)="onChangeY($event)" type="text" matInput [formControl]="myControl" [matAutocomplete]="auto"> 
-              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                  {{option.name}}
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field> -->
+
           
             <mat-form-field>
                 <input matInput placeholder="Eje X" (keyup)="onChangeX($event)" />

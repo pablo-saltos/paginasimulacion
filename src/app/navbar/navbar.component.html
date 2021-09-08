@@ -11,6 +11,7 @@
     <mat-menu #animals="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="vertebrates">Pronóstico</button>
       <button mat-menu-item [matMenuTriggerFor]="jeje">Simulación</button>
+      <button mat-menu-item [matMenuTriggerFor]="primerp">Primer Parcial</button>
     </mat-menu>
 
     <mat-menu #vertebrates="matMenu">
@@ -24,6 +25,12 @@
       <button routerLink="nuevoasunto5" mat-menu-item>Montecarlo</button>
       <button routerLink="nuevoasunto6" mat-menu-item>Inventario</button>
       <button routerLink="nuevoasunto7" mat-menu-item>Linea de espera</button>
+    </mat-menu>
+
+    <mat-menu #primerp="matMenu">
+      <button routerLink="asunto1" mat-menu-item>Extracción de datos</button>
+      <button routerLink="asunto2" mat-menu-item>Media, mediana y moda</button>
+      <button routerLink="asunto3" mat-menu-item>Números aleatorios</button>
     </mat-menu>
 
     <div class="spacer"></div>

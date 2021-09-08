@@ -1,52 +1,76 @@
 <mat-card>
-    <h1>Generación de números aleatorios: cuadrados medios</h1>
+  <h1>Números aleatorios: cuadrados medios</h1>
   
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+    printer took a galley of type and scrambled it to make a type specimen book. It has survived 
+    not only five centuries, but also the leap into electronic typesetting, remaining essentially
+    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+    including versions of Lorem Ipsum.
+  </p>
+  <br>
+  <br>
+  <br>
+
+  <div fxLayoutAlign="center center" class="main-div"> <!-- fxFlexFill -->
+      <mat-card fxFlex="25">
+          <mat-toolbar color="primary">Realizar Ejercicio</mat-toolbar>
+
+          <form fxLayoutAlign="stretch" fxLayout="column" class="ejercicio-form">
+            <p>Carga tu base de datos con el botón de abajo :D</p>
+            
+            <mat-form-field>
+                <input matInput (keyup)="onChangeCantidad($event)" placeholder="Cantidad de números a generar" />
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput (keyup)="onChangeSeed($event)" placeholder="Semilla" />
+          </mat-form-field>
+
+              
+            <br />
+          
+            <button mat-raised-button (click)="onUpload()">Mostrar datos</button>
+          </form>
+      </mat-card>
+  </div>
+  <ng-container *ngIf="llegaronDatos">
     <br />
-    <h2>Cantidad de números a generar</h2>
-    <input matInput (keyup)="onChangeCantidad($event)" placeholder="cantidad" />
-    <br /><br />
-    <h2>Semilla</h2>
-    <input matInput (keyup)="onChangeSeed($event)" placeholder="semilla" />
-    <br /><br />
     <br />
-    <button mat-raised-button (click)="onUpload()" class="btn btn-success">
-      Cargar datos
-    </button>
-    <ng-container *ngIf="llegaronDatos">
-      <br />
-      <br />
-  
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-  
-        <!-- Position Column -->
-  
-        <ng-container matColumnDef="index">
-          <th mat-header-cell *matHeaderCellDef>Index</th>
-          <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
-        </ng-container>
-        <!-- Name Column -->
-        <ng-container matColumnDef="X2">
-          <th mat-header-cell *matHeaderCellDef>X2</th>
-          <td mat-cell *matCellDef="let element">{{ element.X2 }}</td>
-        </ng-container>
-  
-        <!-- Weight Column -->
-        <ng-container matColumnDef="Xi">
-          <th mat-header-cell *matHeaderCellDef>Xi</th>
-          <td mat-cell *matCellDef="let element">{{ element.Xi }}</td>
-        </ng-container>
-  
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="ri">
-          <th mat-header-cell *matHeaderCellDef>ri</th>
-          <td mat-cell *matCellDef="let element">{{ element.ri }}</td>
-        </ng-container>
-  
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-    </ng-container>
-  </mat-card>
-  
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef>Index</th>
+        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="X2">
+        <th mat-header-cell *matHeaderCellDef>X2</th>
+        <td mat-cell *matCellDef="let element">{{ element.X2 }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Xi">
+        <th mat-header-cell *matHeaderCellDef>Xi</th>
+        <td mat-cell *matCellDef="let element">{{ element.Xi }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="ri">
+        <th mat-header-cell *matHeaderCellDef>ri</th>
+        <td mat-cell *matCellDef="let element">{{ element.ri }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </ng-container>
+ 
+</mat-card>
